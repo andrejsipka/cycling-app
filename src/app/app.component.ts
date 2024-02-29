@@ -1,14 +1,13 @@
-import { Component } from '@angular/core';
+import { Component, inject, OnInit, PLATFORM_ID } from '@angular/core';
 import { RouterModule } from '@angular/router';
-import { NxWelcomeComponent } from './nx-welcome.component';
+import { isPlatformBrowser } from '@angular/common';
 
 @Component({
   standalone: true,
-  imports: [NxWelcomeComponent, RouterModule],
-  selector: 'cycling-dashboard-root',
-  templateUrl: './app.component.html',
-  styleUrl: './app.component.scss',
+  imports: [RouterModule],
+  selector: 'app-root',
+  template: `
+    <router-outlet />
+  `
 })
-export class AppComponent {
-  title = 'cycling-dashboard';
-}
+export class AppComponent {}

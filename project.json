@@ -2,7 +2,7 @@
   "name": "cycling-dashboard",
   "$schema": "node_modules/nx/schemas/project-schema.json",
   "projectType": "application",
-  "prefix": "cycling-dashboard",
+  "prefix": "app",
   "sourceRoot": "./src",
   "tags": [],
   "targets": {

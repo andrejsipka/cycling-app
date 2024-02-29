@@ -32,7 +32,7 @@
           "error",
           {
             "type": "element",
-            "prefix": "cycling-dashboard",
+            "prefix": "app",
             "style": "kebab-case"
           }
         ]
