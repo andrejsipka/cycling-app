@@ -1,7 +1,7 @@
 import { inject, Injectable, signal } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { Activity } from '../../../shared/types/activities';
+import { ActivityObject } from '../../../shared/types/activities';
 
 @Injectable({
   providedIn: 'root'
@@ -9,7 +9,7 @@ import { Activity } from '../../../shared/types/activities';
 export class ActivitiesService {
   private readonly http: HttpClient = inject(HttpClient);
 
-  public activitiesSignal = signal<Activity[]>([]);
+  public activitiesSignal = signal<ActivityObject[]>([]);
 
   constructor() {
     this.getActivities().subscribe({
@@ -19,8 +19,8 @@ export class ActivitiesService {
     })
   }
   
-  private getActivities() :Observable<Activity[]> {
-    return this.http.get<Activity[]>('/assets/data/activities.json');
+  private getActivities() :Observable<ActivityObject[]> {
+    return this.http.get<ActivityObject[]>('/assets/data/activities.json');
   }
 }
 
