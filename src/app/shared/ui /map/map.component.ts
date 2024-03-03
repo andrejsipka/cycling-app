@@ -17,48 +17,53 @@ export class MapComponent implements AfterViewInit {
 
   @ViewChild('leafletMap') private mapElement!: ElementRef;
 
+  private L!: any;
   private map: Map | null = null;
 
   public ngAfterViewInit() :void {
     if(isPlatformBrowser(this.platformId)) {
-      this.initializeMap();
+      this.importMap();
     }
   }
 
-  private async initializeMap() :Promise<void> {
+  public async importMap() :Promise<void> {
     try {
       // Dynamic import will return a promise
-      const L = await import('leaflet');
+      this.L = await import('leaflet');
 
-      // Base tiles
-      const osm = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-        maxZoom: 18,
-        minZoom: 3,
-      });
-
-      const cycloOSM = L.tileLayer('https://{s}.tile-cyclosm.openstreetmap.fr/cyclosm/{z}/{x}/{y}.png', {
-        maxZoom: 18,
-        minZoom: 3,
-      });
-
-      const baseTiles = {
-        "OpenStreetMap": osm,
-        "CycloOSM": cycloOSM
-      }
-
-      // Create a map
-      this.map = L.map(this.mapElement.nativeElement, {
-        center: [57.048, 9.9187],
-        zoom: 14,
-        layers: [cycloOSM],
-        zoomControl: false,
-        scrollWheelZoom: false
-      });
-
-      L.control.layers(baseTiles).addTo(this.map);
+      this.initializeMap();
     }
     catch(err) {
       console.log('Something went wrong: ,', err);
     }
+  }
+
+  private initializeMap() :void {
+    // Base tiles
+    const osm = this.L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      maxZoom: 18,
+      minZoom: 3,
+    });
+
+    const cycloOSM = this.L.tileLayer('https://{s}.tile-cyclosm.openstreetmap.fr/cyclosm/{z}/{x}/{y}.png', {
+      maxZoom: 18,
+      minZoom: 3,
+    });
+
+    const baseTiles = {
+      "OpenStreetMap": osm,
+      "CycloOSM": cycloOSM
+    }
+
+    // Create a map
+    this.map = this.L.map(this.mapElement.nativeElement, {
+      center: [57.048, 9.9187],
+      zoom: 14,
+      layers: [cycloOSM],
+      zoomControl: false,
+      scrollWheelZoom: false
+    });
+
+    this.L.control.layers(baseTiles).addTo(this.map);
   }
 }
