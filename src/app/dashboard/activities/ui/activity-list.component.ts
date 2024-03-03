@@ -12,6 +12,7 @@ import { HlmButtonDirective } from '@spartan-ng/ui-button-helm';
 import { HlmBadgeDirective } from '@spartan-ng/ui-badge-helm';
 import { Router } from '@angular/router';
 import { MapComponent } from 'src/app/shared/ui /map/map.component';
+import { MetricsWidgetComponent } from './metric-widget.component';
 
 @Component({
   selector: 'app-activity-list',
@@ -25,7 +26,8 @@ import { MapComponent } from 'src/app/shared/ui /map/map.component';
     HlmCardTitleDirective,
     HlmButtonDirective,
     HlmBadgeDirective,
-    MapComponent
+    MapComponent,
+    MetricsWidgetComponent
   ],
   template:  `
     <div class="space-y-4">
@@ -42,46 +44,10 @@ import { MapComponent } from 'src/app/shared/ui /map/map.component';
           </div>
           <div hlmCardContent>
             <div class="flex justify-between mb-4">
-              <div hlmCard>
-                <div class="p-4">
-                  <div class="flex justify-center items-center space-x-2">
-                    <i class="material-symbols-outlined text-lg">distance</i>
-                    <p class="text-muted-foreground text-sm">Distance</p>
-                  </div>
-
-                  {{activity.distance}}
-                </div>
-              </div>
-              <div hlmCard>
-                <div class="p-4">
-                  <div class="flex justify-center items-center space-x-2">
-                    <i class="material-symbols-outlined text-lg">timer</i>
-                    <p class="text-muted-foreground text-sm">Duration</p>
-                  </div>
-
-                  {{activity.moving_time}}
-                </div>
-              </div>
-              <div hlmCard>
-                <div class="p-4">
-                  <div class="flex justify-center items-center space-x-2">
-                    <i class="material-symbols-outlined text-lg">elevation</i>
-                    <p class="text-muted-foreground text-sm">Elevation</p>
-                  </div>
-
-                  {{activity.total_elevation_gain}}
-                </div>
-              </div>
-              <div hlmCard>
-                <div class="p-4">
-                  <div class="flex justify-center items-center space-x-2">
-                    <i class="material-symbols-outlined text-lg">speed</i>
-                    <p class="text-muted-foreground text-sm">Avg. speed</p>
-                  </div>
-
-                  {{activity.average_speed}}
-                </div>
-              </div>
+              <app-metrics-widget googleIcon="distance" label="Distance">{{activity.distance}}</app-metrics-widget>
+              <app-metrics-widget googleIcon="timer" label="Duration">{{activity.moving_time}}</app-metrics-widget>
+              <app-metrics-widget googleIcon="elevation" label="Elevation">{{activity.total_elevation_gain}}</app-metrics-widget>
+              <app-metrics-widget googleIcon="speed" label="Avg. speed">{{activity.average_speed}}</app-metrics-widget>
             </div>
             
             <div class="bg-muted h-[300px]">
