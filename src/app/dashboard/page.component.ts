@@ -9,7 +9,7 @@ import { RouterLink, RouterModule } from '@angular/router';
     RouterLink,
   ],
   template: `
-    <div class="flex justify-center">
+    <div class="flex justify-center px-2 lx:px-0">
       <div class="min-h-full flex w-full max-w-[1240px]">
         <nav class="md:w-[300px] sticky top-0 h-dvh py-6">
           <a routerLink="/">Dashboard</a>

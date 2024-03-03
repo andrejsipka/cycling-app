@@ -23,11 +23,12 @@ import {
     HlmCardTitleDirective,
   ],
   template: `
-    <div class="flex w-100 space-x-4">
-      <div class="flex-grow max-w-[600px]">
+    <div class="w-full grid grid-cols-1 lg:grid-cols-[1fr_300px] gap-4">
+      <div class="flex-grow w-100">
         <app-activity-list [activities]="activitiesService.activitiesSignal()"/>
-      </div> 
-      <div class="space-y-4">
+      </div>
+
+      <div class="flex flex-col gap-4 row-start-1 lg:row-auto">
         <section hlmCard>
           <div hlmCardHeader>
             <div>

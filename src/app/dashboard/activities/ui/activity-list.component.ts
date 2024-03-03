@@ -43,7 +43,7 @@ import { MetricsWidgetComponent } from './metric-widget.component';
             </div>
           </div>
           <div hlmCardContent>
-            <div class="flex justify-between mb-4">
+            <div class="grid sm:grid-cols-2 xl:grid-cols-4 gap-4 mb-4">
               <app-metrics-widget googleIcon="distance" label="Distance">{{activity.distance}}</app-metrics-widget>
               <app-metrics-widget googleIcon="timer" label="Duration">{{activity.moving_time}}</app-metrics-widget>
               <app-metrics-widget googleIcon="elevation" label="Elevation">{{activity.total_elevation_gain}}</app-metrics-widget>
