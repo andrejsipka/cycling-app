@@ -11,6 +11,7 @@ import {
 import { HlmButtonDirective } from '@spartan-ng/ui-button-helm';
 import { HlmBadgeDirective } from '@spartan-ng/ui-badge-helm';
 import { Router } from '@angular/router';
+import { MapComponent } from 'src/app/shared/ui /map/map.component';
 
 @Component({
   selector: 'app-activity-list',
@@ -23,7 +24,8 @@ import { Router } from '@angular/router';
     HlmCardHeaderDirective,
     HlmCardTitleDirective,
     HlmButtonDirective,
-    HlmBadgeDirective
+    HlmBadgeDirective,
+    MapComponent
   ],
   template:  `
     <div class="space-y-4">
@@ -83,7 +85,7 @@ import { Router } from '@angular/router';
             </div>
             
             <div class="bg-muted h-[300px]">
-
+              <app-map />
             </div>
           </div>
           <p hlmCardFooter>
