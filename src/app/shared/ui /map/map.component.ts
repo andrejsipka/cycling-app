@@ -8,7 +8,7 @@ import { Map } from "leaflet";
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
     <div class="h-[300px]">
-      <div class="h-full" id="map" #leafletMap></div>
+      <div class="h-full w-full" id="map" #leafletMap></div>
     </div>
   `,
 })
