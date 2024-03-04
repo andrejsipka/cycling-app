@@ -11,7 +11,7 @@ import {
 import { HlmButtonDirective } from '@spartan-ng/ui-button-helm';
 import { HlmBadgeDirective } from '@spartan-ng/ui-badge-helm';
 import { Router } from '@angular/router';
-import { MapComponent } from 'src/app/shared/ui /map/map.component';
+import { MapComponent } from 'src/app/shared/ui/map/map.component';
 import { MetricsWidgetComponent } from './metric-widget.component';
 
 @Component({

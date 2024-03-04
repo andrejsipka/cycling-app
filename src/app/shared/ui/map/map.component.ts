@@ -65,5 +65,10 @@ export class MapComponent implements AfterViewInit {
     });
 
     this.L.control.layers(baseTiles).addTo(this.map);
+
+    // To render tiles properly based on the container size
+    setTimeout(() => {
+      this.map?.invalidateSize();
+    }, 500);
   }
 }
