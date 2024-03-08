@@ -1,10 +1,10 @@
-import { PageComponent } from './page.component';
+import { PageComponent as ActivityPage } from './activities/feature/activity-shell/page.component';
 import { Route } from '@angular/router';
 
 export const dashboardRoutes: Route[] = [
   {
     path: '',
-    component: PageComponent,
+    component: ActivityPage,
     children: [
       {
         path: 'activities',
